@@ -7,6 +7,18 @@ let app = new Vue({
 		altText: 'Green socks',
 		inStock: true,
 		inventory: 12,
-		onSale: true
-	}
+		onSale: true,
+		details: ["80% cotton", "20% polyester", "Gender-neutral"],
+		variants: [
+			{
+				variantId: 2234,
+				variantColor: "green"
+			},
+			{
+				variantId: 2235,
+				variantColor: "blue"
+			}
+			],
+			cart: 0
+		}
 })

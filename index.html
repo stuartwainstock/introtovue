@@ -18,7 +18,19 @@
 						<p v-else-if="inventory <= 10 && inventory > 0">Almost sold out</p>
 						<p v-else>Out of Stock</p>
 						<p v-if="onSale === true">On Sale</p>
+
+						<ul>
+							<li v-for="detail in details">{{ detail }}</li>
+						</ul>
+						<div v-for="variant in variants" :key="variants.variantId">
+							<p>{{ variant.variantColor }}</p>
+						</div>
+						<button v-on:click="cart +=1">Add to Cart</button>
+					<div class="cart">
+						<p>Cart({{cart}})</p>
 					</div>
+					</div>
+					
 			</div>
 		</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
