@@ -25,9 +25,6 @@ Vue.component('product',{
 						<button @click="addToCart" 
 								:disabled="!inStock"
 								:class="{ disabledButton: !inStock }">Add to Cart</button>
-					<div class="cart">
-						<p>Cart({{cart}})</p>
-					</div>
 					</div>
 					
 			</div>
@@ -51,13 +48,12 @@ Vue.component('product',{
             variantImage: 'https://www.vuemastery.com/images/challenges/vmSocks-blue-onWhite.jpg',
             variantQuantity: 0     
           }
-        ],
-        cart: 0
+        ]
     }
   },
     methods: {
       addToCart: function() {
-          this.cart += 1
+          this.$emit('add-to-cart')
       },
       updateProduct: function(index) {  
           this.selectedVariant = index
@@ -85,6 +81,12 @@ Vue.component('product',{
 var app = new Vue({
     el: '#app',
     data: {
-      premium: true
+      premium: false,
+      cart: 0
+    },
+    methods: {
+    	updateCart(){
+    		this.cart += 1
+    	}
     }
 })
