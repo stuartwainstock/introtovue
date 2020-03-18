@@ -26,6 +26,7 @@ Vue.component('product',{
 								:disabled="!inStock"
 								:class="{ disabledButton: !inStock }">Add to Cart</button>
 					</div>
+					<product-review></product-review>
 					
 			</div>
 	`,
@@ -76,6 +77,16 @@ Vue.component('product',{
             return 2.99
         }
     }
+})
+Vue.component('product-review', {
+	template: `
+	<input v-model="name">
+	`,
+	data() {
+		return {
+			name: null
+		}
+	}
 })
 
 var app = new Vue({
